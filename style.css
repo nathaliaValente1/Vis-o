@@ -1,27 +1,259 @@
-//Botões de acessibilidade
-document.addEventListener("DOMContentLoaded, () =>{
-    
-    const btnContraste = document.getElementById("btn-contraste");
-    const btnAumentar = document.getElementById("btn-aumentar-texto");
-    const btnDiminuir = document.getElementById("btn-diminuir-texto");
+/* ==========================================================================
+   Variáveis Globais e Temas
+   ========================================================================== */
+:root {
+    --bg-body: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --primary-color: #2563eb;
+    --border-color: #cbd5e1;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
 
-    //aumenta a fonte 
+/* Tema em Alto Contraste */
+body.alto-contraste {
+    --bg-body: #000000;
+    --bg-surface: #000000;
+    --bg-card: #121212;
+    --text-primary: #ffff00;
+    --text-secondary: #ffffff;
+    --primary-color: #00ffff;
+    --border-color: #ffffff;
+    --shadow: none;
+}
 
-    let tamanhoAtualFonte = 100;
+/* ==========================================================================
+   Reset e Configurações Base
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    //função alto contraste
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
 
-btnConstraste.addEventListener("click", () => {
+/* Destaque de foco para navegação por teclado */
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 3px;
+}
 
-document.body.classList.toogle("Alto-contraste");
+/* ==========================================================================
+   Barra de Acessibilidade Fixa
+   ========================================================================== */
+#barra-acessibilidade {
+    background-color: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-//acessibilidade para leitores de template
+#barra-acessibilidade button,
+.sim-controls button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: 2px solid transparent;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
 
-const ativo = document.body. classList.contains("alto-contraste");
-btnContraste.setAttribute("aria-pressed", ativo);
+#barra-acessibilidade button:hover,
+.sim-controls button:hover {
+    opacity: 0.9;
+}
 
+body.alto-contraste #barra-acessibilidade button,
+body.alto-contraste .sim-controls button {
+    background-color: #000000;
+    color: #ffff00;
+    border-color: #ffff00;
+}
 
-})
+/* ==========================================================================
+   Cabeçalho e Navegação
+   ========================================================================== */
+header {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+}
 
+header h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
 
-}")
+nav {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1.2rem;
+    padding: 1rem;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Estrutura Principal e Grid Responsivo
+   ========================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.3rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.card ul {
+    padding-left: 1.2rem;
+}
+
+.spectrum-container {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+/* ==========================================================================
+   Tabela Responsiva
+   ========================================================================== */
+.table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+}
+
+th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--bg-body);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Simulador e Filtros de Visão
+   ========================================================================== */
+.simulator-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+
+.sim-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#preview {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    border-radius: var(--radius);
+    background: linear-gradient(to right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+    transition: filter 0.3s ease;
+}
+
+/* Efeitos Visuais das Deficiências de Cores */
+#preview.filter-normal { filter: none; }
+#preview.filter-deuteranopia { filter: grayscale(20%) sepia(60%) hue-rotate(50deg); }
+#preview.filter-protanopia { filter: grayscale(30%) sepia(70%) hue-rotate(15deg); }
+#preview.filter-tritanopia { filter: grayscale(10%) sepia(50%) hue-rotate(170deg); }
+#preview.filter-achromatopsia { filter: grayscale(100%); }
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
