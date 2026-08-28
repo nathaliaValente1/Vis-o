@@ -1,14 +1,14 @@
-/* ==========================================================================
+* ==========================================================================
    Variáveis Globais e Temas
    ========================================================================== */
 :root {
-    --bg-body: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-card: #ffffff;
-    --text-primary: #1e293b;
+    --bg-body: #ddd900;
+    --bg-surface: #3d742f;
+    --bg-card: #d61212;
+    --text-primary: #0062ff;
     --text-secondary: #475569;
-    --primary-color: #2563eb;
-    --border-color: #cbd5e1;
+    --primary-color: #00a2ff;
+    --border-color: #1664c4;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --radius: 8px;
 }
