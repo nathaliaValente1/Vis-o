@@ -2,9 +2,9 @@
    Variáveis Globais e Temas
    ========================================================================== */
 :root {
-    --bg-body: #ddd900;
-    --bg-surface: #3d742f;
-    --bg-card: #d61212;
+    --bg-body: #f0c1ff;
+    --bg-surface: #fafc9d;
+    --bg-card: #fdffff;
     --text-primary: #7d20d3;
     --text-secondary: #664b77;
     --primary-color: #c977ff;
@@ -20,7 +20,7 @@ body.alto-contraste {
     --bg-card: #121212;
     --text-primary: #ffff00;
     --text-secondary: #ffffff;
-    --primary-color: #00ffff;
+    --primary-color: #c54beb;
     --border-color: #ffffff;
     --shadow: none;
 }
@@ -67,7 +67,7 @@ a:focus-visible, button:focus-visible {
 #barra-acessibilidade button,
 .sim-controls button {
     background-color: var(--primary-color);
-    color: #f5c4ff;
+    color: #7d1692;
     border: 2px solid transparent;
     padding: 0.5rem 0.9rem;
     font-size: 0.9rem;
