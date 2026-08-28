@@ -5,10 +5,10 @@
     --bg-body: #ddd900;
     --bg-surface: #3d742f;
     --bg-card: #d61212;
-    --text-primary: #0062ff;
-    --text-secondary: #475569;
-    --primary-color: #00a2ff;
-    --border-color: #1664c4;
+    --text-primary: #7d20d3;
+    --text-secondary: #664b77;
+    --primary-color: #c977ff;
+    --border-color: #4c1074;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --radius: 8px;
 }
@@ -67,7 +67,7 @@ a:focus-visible, button:focus-visible {
 #barra-acessibilidade button,
 .sim-controls button {
     background-color: var(--primary-color);
-    color: #ffffff;
+    color: #f5c4ff;
     border: 2px solid transparent;
     padding: 0.5rem 0.9rem;
     font-size: 0.9rem;
